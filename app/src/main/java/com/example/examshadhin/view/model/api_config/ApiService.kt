@@ -1,6 +1,7 @@
 package com.example.examshadhin.view.model.api_config
 
 import com.example.examshadhin.BuildConfig
+import com.example.examshadhin.view.model.CustomerDeleteResponse
 import com.example.examshadhin.view.model.CustomerListResponse
 import com.example.examshadhin.view.model.CustomerRegResponse
 import com.example.examshadhin.view.model.RegistrationModel
@@ -51,6 +52,11 @@ class ApiService {
             model.name,
             model.status,
             model.email
+        )
+    }
+    fun deleteUser(model: RegistrationModel): Single<CustomerDeleteResponse> {
+        return api.deleteUser(
+            model.id
         )
     }
     fun getCustomerList(): Single<List<CustomerListResponse>> {

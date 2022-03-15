@@ -28,7 +28,6 @@
             android:id="@+id/edtCustomerName"
             android:singleLine="true"
             android:hint="@string/reg_name"
-            android:text="Shadhin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -37,7 +36,6 @@
         <EditText
             android:id="@+id/edtCustomerEmail"
             android:hint="@string/reg_email"
-            android:text="sha@gmail.com"
             android:inputType="textEmailAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">

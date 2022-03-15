@@ -3,6 +3,7 @@ package com.example.examshadhin.view.viewmodel
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.examshadhin.view.model.CustomerDeleteResponse
 import com.example.examshadhin.view.model.CustomerListResponse
 import com.example.examshadhin.view.model.CustomerRegResponse
 import com.example.examshadhin.view.model.RegistrationModel
@@ -12,6 +13,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
+import retrofit2.HttpException
 
 class CustomerViewModel : ViewModel(){
     private val apiService = ApiService()
@@ -20,6 +22,7 @@ class CustomerViewModel : ViewModel(){
     var customerRegistrationResponse = MutableLiveData<CustomerRegResponse>()
     var customerListResponse = MutableLiveData<List<CustomerListResponse>>()
     var error_response = MutableLiveData<Boolean>();
+    var userDeleteResponse = MutableLiveData<Boolean>();
 
     fun reqForUserRegistration(model: RegistrationModel) {
 
@@ -79,6 +82,31 @@ class CustomerViewModel : ViewModel(){
                     }
                     e.printStackTrace()
                     error_response.value = true
+                }
+            })
+        )
+    }
+
+    fun deleteUser(model: RegistrationModel) {
+
+        disposable.add(apiService.deleteUser(model)
+            .subscribeOn(Schedulers.newThread())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeWith(object : DisposableSingleObserver<CustomerDeleteResponse>() {
+
+                override fun onSuccess(model: CustomerDeleteResponse) {
+                }
+                override fun onError(e: Throwable) {
+                    if(e.message.toString().toString() == "null"){
+                        userDeleteResponse.value = true
+                    }else{
+                        error_response.value = true
+                        userDeleteResponse.value = false
+                    }
+                    if(Constant.logCheck){
+                        Log.e("error_deleteUser", e.message.toString())
+                    }
+                    e.printStackTrace()
                 }
             })
         )

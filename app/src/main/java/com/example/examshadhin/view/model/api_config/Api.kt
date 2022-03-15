@@ -1,4 +1,5 @@
 package com.example.examshadhin.view.model.api_config
+import com.example.examshadhin.view.model.CustomerDeleteResponse
 import com.example.examshadhin.view.model.CustomerListResponse
 import com.example.examshadhin.view.model.CustomerRegResponse
 import io.reactivex.Single
@@ -29,4 +30,12 @@ interface Api {
     @GET("public/v2/users")
     fun getCustomerList(
     ): Single<List<CustomerListResponse>>
+
+
+    //API END POINT
+    @DELETE("public/v2/users/{id}")
+    fun deleteUser(
+        @Path("id") id: Int?
+    ): Single<CustomerDeleteResponse>
+
 }

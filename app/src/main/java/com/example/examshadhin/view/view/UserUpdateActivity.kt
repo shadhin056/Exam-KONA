@@ -44,6 +44,15 @@ class UserUpdateActivity : AppCompatActivity() {
                 }
             }
         }
+        customerViewModel.userDeleteResponse.observe(this) {
+            it?.let {
+                if (it) {
+                    Toast.makeText(this, "User Deleted", Toast.LENGTH_LONG).show()
+                }else{
+                    Toast.makeText(this, "error occurred", Toast.LENGTH_LONG).show()
+                }
+            }
+        }
         customerViewModel.customerRegistrationResponse.observe(this) {
 
             it?.let {
@@ -64,9 +73,15 @@ class UserUpdateActivity : AppCompatActivity() {
                 updateUserInfo()
             }
         }
-
+        btnDelete.setOnClickListener {
+             deleteUser()
+        }
     }
-
+    private fun deleteUser() {
+        val model = RegistrationModel()
+        model.id = globalVariable.id
+        this.let { it1 -> customerViewModel.deleteUser(model) }
+    }
     private fun updateUserInfo() {
         val model = RegistrationModel()
         model.id = globalVariable.id
