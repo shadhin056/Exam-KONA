@@ -32,6 +32,7 @@ class ViewCustomerListActivity : AppCompatActivity() {
         val mLayoutManager = LinearLayoutManager(applicationContext)
         rvUserList!!.setLayoutManager(mLayoutManager)
         rvUserList!!.setItemAnimator(DefaultItemAnimator())
+        Toast.makeText(this, "Information fetching", Toast.LENGTH_SHORT).show()
     }
     @SuppressLint("NotifyDataSetChanged")
     fun observeViewModel() {
@@ -45,7 +46,7 @@ class ViewCustomerListActivity : AppCompatActivity() {
         customerViewModel.customerListResponse.observe(this) {
 
             it?.let {
-                Toast.makeText(this, "Information fetching", Toast.LENGTH_LONG).show()
+
                 if(Constant.logCheck){
                     Log.d(ViewCustomerListActivity::class.java.getSimpleName(),it.toString())
                 }
