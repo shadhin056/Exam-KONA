@@ -5,6 +5,9 @@
       <map>
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_registration.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_user_update.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_view_customer_list.xml" value="0.16576086956521738" />
+        <entry key="app/src/main/res/layout/row_user.xml" value="0.165" />
       </map>
     </option>
   </component>

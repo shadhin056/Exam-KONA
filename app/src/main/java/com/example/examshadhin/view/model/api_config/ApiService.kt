@@ -1,6 +1,7 @@
 package com.example.examshadhin.view.model.api_config
 
 import com.example.examshadhin.BuildConfig
+import com.example.examshadhin.view.model.CustomerListResponse
 import com.example.examshadhin.view.model.CustomerRegResponse
 import com.example.examshadhin.view.model.RegistrationModel
 import com.example.examshadhin.view.util.Constant
@@ -43,4 +44,18 @@ class ApiService {
             model.email
         )
     }
+    fun updateUserInfo(model: RegistrationModel): Single<CustomerRegResponse> {
+        return api.updateUserInfo(
+            model.id,
+            model.gender,
+            model.name,
+            model.status,
+            model.email
+        )
+    }
+    fun getCustomerList(): Single<List<CustomerListResponse>> {
+        return api.getCustomerList(
+        )
+    }
+
 }

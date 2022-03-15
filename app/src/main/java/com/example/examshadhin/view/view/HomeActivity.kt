@@ -17,5 +17,9 @@ class HomeActivity : AppCompatActivity() {
             val intent = Intent(this@HomeActivity, RegistrationActivity::class.java)
             startActivity(intent);
         }
+        btnViewCustomer.setOnClickListener {
+            val intent = Intent(this@HomeActivity, ViewCustomerListActivity::class.java)
+            startActivity(intent);
+        }
     }
 }
