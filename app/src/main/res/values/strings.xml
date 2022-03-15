@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">ExamShadhiN</string>
+    <string name="home_registration">Registration</string>
+    <string name="home_users">Users</string>
+    <string name="home_title">MD.Moniruzzaman shadhin</string>
+    <string name="reg_registration">Registration</string>
+    <string name="reg_name">Name</string>
+    <string name="reg_email">Email</string>
+    <string name="reg_gender">Gender</string>
+    <string name="reg_status">Status</string>
+    <string name="reg_submit">Submit</string>
+
+    <string-array name="gender">
+        <item>male</item>
+        <item>female</item>
+    </string-array>
+
+    <string-array name="status">
+        <item>active</item>
+        <item>inactive</item>
+    </string-array>
 </resources>
